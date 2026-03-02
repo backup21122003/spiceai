@@ -1,0 +1,180 @@
+{
+  "kind": "build_request",
+  "title": "SpiceAI — Ingredient-Based Recipe Recommendation System with Data Analytics",
+  "projectName": "SpiceAI",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Build a full-page React application titled SpiceAI — Ingredient-Based Recipe Recommendation System with Data Analytics. The app must have a hero header section with the SpiceAI brand name (with a curry bowl emoji), the full project subtitle INGREDIENT-BASED RECIPE RECOMMENDATION SYSTEM WITH DATA ANALYTICS, and a visually rich background using the hero banner image (spiceai-hero.dim_1440x500.png) as a backdrop with a warm gradient overlay.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "my project title is INGREDIENT-BASED RECIPE RECOMMENDATION SYSTEM WITH DATA ANALYTICS"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Header displays SpiceAI as the brand name with a curry bowl emoji",
+        "Full project subtitle is shown below the brand name",
+        "Hero section uses the generated banner image with warm gradient overlay",
+        "Header is visually prominent and polished"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Implement an ingredient search section with a styled input field where users can type ingredients separated by commas (e.g., tomato, onion, paneer). Include a prominent Find Recipes button. When submitted, call the Spoonacular API: GET https://api.spoonacular.com/recipes/findByIngredients?ingredients={ingredients}&number=5&cuisine=Indian&apiKey=f1a04579d22649258b5b03a04d119c6f. Show a loading spinner with text 'Cooking delicious Indian recipes...' while the request is in progress. If the input is empty, show a validation message.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "const API_KEY = \"f1a04579d22649258b5b03a04d119c6f\""
+        ]
+      },
+      "acceptanceCriteria": [
+        "Input field accepts comma-separated ingredients",
+        "Find Recipes button triggers the search",
+        "Loading animation displays during API call",
+        "Empty input shows a friendly validation message",
+        "If no recipes found, display a No Indian recipes found message"
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Display recipe search results as a responsive grid of recipe cards. Each card must show: the recipe image, recipe title, a green badge for number of used ingredients, an orange badge for number of missing ingredients, and a View Recipe button. Cards must have hover lift/scale effects. Use React Query to manage API fetch state.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Used: ${recipe.usedIngredientCount}",
+          "Missing: ${recipe.missedIngredientCount}"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Recipes render in a responsive grid of 2 to 4 columns depending on viewport",
+        "Each card shows image, title, used count badge, and missing count badge",
+        "View Recipe button opens the recipe detail view",
+        "Cards have smooth hover scale animation"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Implement a recipe detail view. When View Recipe is clicked, fetch from: GET https://api.spoonacular.com/recipes/{id}/information?includeNutrition=true&apiKey=f1a04579d22649258b5b03a04d119c6f. Display: recipe title, image, a nutrition panel with styled stat cards for Calories (kcal), Protein (g), Fat (g), and Carbohydrates (g), a full ingredient list, and numbered step-by-step cooking instructions. Include a Back to Results button to return to the recipe list.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "const calories = nutrients.find(n => n.name === \"Calories\")?.amount || 0;"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Detail view shows title, image, 4 nutrition stat cards, ingredient list, and numbered instructions",
+        "Back button returns to the recipe results list without re-fetching",
+        "Nutrition values are correctly extracted from the API nutrition.nutrients array"
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Add a Data Analytics section below the recipe results. Render a bar chart comparing Calorie content (kcal) for each recipe viewed in the current session, labelled Ingredient Analytics — Calorie Comparison. Also render a doughnut chart showing the macronutrient breakdown (Protein, Fat, Carbohydrates) for the most recently viewed recipe. Use Recharts or react-chartjs-2. Both charts must be styled with the app color theme and update dynamically as the user views more recipes.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "section class=\"analytics\"",
+          "new Chart(ctx, { type: 'bar'"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Bar chart displays calorie values for all recipes viewed in the current session",
+        "Doughnut chart shows Protein, Fat, and Carbs breakdown for the last viewed recipe",
+        "Both charts update dynamically without page reload",
+        "Analytics section has a clear heading and styled card container"
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Apply a warm Indian-cuisine-inspired visual theme across the entire application. Use a saffron-to-deep-crimson color palette (primary #E63946, accent #F4A261, warm background #FFF8F0, secondary green #2D6A4F). Load Poppins font from Google Fonts for all text. Use rounded cards with soft shadows, generous spacing, and smooth transitions. Set a full-width layout with a centered 1200px max-width container. Apply the spice-pattern texture (spice-pattern.dim_400x400.png) as a subtle repeating tile on section backgrounds.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "kindly make a beautiful attractive website"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Saffron and crimson color palette is consistently applied site-wide",
+        "Poppins font is loaded and applied to all headings and body text",
+        "All cards use rounded corners and soft drop shadows",
+        "Layout uses a centered max-width container of 1200px",
+        "Section backgrounds use the spice pattern as a subtle tile texture",
+        "All interactive elements have smooth hover and transition animations"
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "text": "Render the generated hero banner image (spiceai-hero.dim_1440x500.png) and spice pattern texture (spice-pattern.dim_400x400.png) and logo (spiceai-logo.dim_120x40.png) as static assets served from frontend/public/assets/generated. Reference them in the hero header background, section background tiling, and navbar logo respectively.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Hero banner image is displayed as the header section background",
+        "Spice pattern texture tiles across content section backgrounds",
+        "Logo image renders in the navbar",
+        "All images load from the /assets/generated/ path"
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "text": "Add a sticky navigation bar at the top with the SpiceAI logo (spiceai-logo.dim_120x40.png) on the left and anchor links to Search, Recipes, and Analytics sections on the right. The navbar should start semi-transparent with a frosted-glass effect and transition to a solid warm background color on scroll.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "kindly make a beautiful attractive website"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Navbar is sticky and always visible during scroll",
+        "Logo image renders on the left side of the navbar",
+        "Anchor links smoothly scroll to their respective sections",
+        "Navbar background transitions from frosted/transparent to solid on scroll"
+      ]
+    }
+  ],
+  "constraints": [
+    "The Spoonacular API key must be exactly: f1a04579d22649258b5b03a04d119c6f",
+    "All Spoonacular API calls must be made directly from the frontend — do not proxy through the Motoko backend",
+    "No backend state storage is required for this feature set"
+  ],
+  "nonGoals": [
+    "User authentication or saved recipe history persistence",
+    "Backend recipe caching or storage in Motoko",
+    "Non-Indian cuisine filtering",
+    "Mobile app or PWA capabilities"
+  ],
+  "imageRequirements": {
+    "required": [
+      "Wide cinematic hero banner showing a vibrant spread of colorful Indian spices, fresh vegetables including tomato onion paneer and coriander, and decorative copper cooking pots on a warm wooden surface with rich warm golden lighting (spiceai-hero.dim_1440x500.png)",
+      "Seamless repeating tile pattern of small Indian spice illustrations including mustard seeds chili peppers cumin and coriander leaves on a warm cream background suitable as a subtle texture (spice-pattern.dim_400x400.png)",
+      "Horizontal wordmark logo with a small stylized chili pepper icon beside bold text SpiceAI on a transparent background using saffron and crimson tones (spiceai-logo.dim_120x40.png)"
+    ],
+    "edits": []
+  }
+}

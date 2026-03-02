@@ -1,0 +1,14 @@
+{
+  "frontend/src/index.css": "Global stylesheet importing Poppins and Playfair Display fonts, defining a warm Indian-cuisine-inspired OKLCH color system (saffron, crimson, amber), and utility classes for gradients, glass effects, card hover animations, and spice pattern backgrounds.",
+  "frontend/tailwind.config.js": "Extended Tailwind config with Poppins/Playfair Display fonts, custom spice color palette tokens (crimson, saffron, amber, turmeric, forest), enhanced border radii, spice-themed box shadows, and fade-in/shimmer keyframe animations.",
+  "frontend/src/types/spoonacular.ts": "TypeScript interfaces for Spoonacular API responses including SpoonacularRecipe, SpoonacularRecipeDetail, SpoonacularIngredient, SpoonacularNutrient, and NutritionStats for session analytics.",
+  "frontend/src/hooks/useQueries.ts": "React Query hooks for Spoonacular API calls — useSearchRecipes fetches recipes by ingredients filtered to Indian cuisine, and useRecipeDetail fetches full recipe info with nutrition data.",
+  "frontend/src/components/Navbar.tsx": "Sticky navigation bar with SpiceAI logo, anchor links to Search/Recipes/Analytics sections, mobile hamburger menu, and scroll-based transition from transparent to frosted-glass solid background.",
+  "frontend/src/components/HeroSection.tsx": "Full-width hero section with the generated banner image background, crimson-to-saffron gradient overlay, SpiceAI branding, subtitle, CTA buttons, and a decorative SVG wave at the bottom.",
+  "frontend/src/components/IngredientSearch.tsx": "Interactive ingredient search with tag-based input (Enter/comma to add), quick suggestion chips, validation, loading state, and a styled Find Recipes button that triggers the Spoonacular API search.",
+  "frontend/src/components/RecipeCard.tsx": "Recipe card component displaying image with hover zoom, used/missing ingredient badges, ingredient match progress bar, used ingredient tags, and a View Recipe button with hover color transition.",
+  "frontend/src/components/RecipeGrid.tsx": "Responsive 1–4 column recipe grid that renders RecipeCard components, shows skeleton loading placeholders, and handles empty/no-results states.",
+  "frontend/src/components/RecipeDetail.tsx": "Full recipe detail view fetching nutrition data from Spoonacular, displaying 4 nutrition stat cards, ingredient list, numbered cooking steps, and a back navigation button; also triggers nutrition collection for analytics.",
+  "frontend/src/components/AnalyticsSection.tsx": "Data analytics section with a Recharts bar chart comparing calories across viewed recipes and a doughnut/pie chart showing macronutrient breakdown for the last viewed recipe, plus session summary stat cards.",
+  "frontend/src/App.tsx": "Root application component managing view state (list vs detail), search state, nutrition stats collection, and rendering all sections (Navbar, Hero, Search, RecipeGrid/Detail, Analytics, Footer) with proper scroll behavior."
+}

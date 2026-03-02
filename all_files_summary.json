@@ -1,0 +1,23 @@
+{
+  "backend/main.mo": "Empty Motoko actor serving as the backend entry point with no implemented functionality.",
+  "feature_evidence.json": "Feature evidence report mapping implemented features (hero section, ingredient search, recipe cards, analytics) to their source files, components, and test IDs with confidence ratings.",
+  "frontend-file-summaries.txt": "JSON document containing one-sentence descriptions of each frontend source file, serving as a reference summary for the project's frontend architecture.",
+  "frontend/index.css": "Base Tailwind CSS file defining OKLCH-based CSS custom properties for light and dark theme color tokens including background, foreground, card, chart, and sidebar variables.",
+  "frontend/index.html": "Minimal HTML shell for the SpiceAI React app, mounting the app into a root div and loading the main TypeScript entry point as an ES module.",
+  "frontend/src/App.tsx": "Root React component managing view state (list vs. detail), ingredient search, nutrition stats collection, and composing all major sections (Navbar, Hero, Search, RecipeGrid/Detail, Analytics, Footer).",
+  "frontend/src/components/AnalyticsSection.tsx": "Analytics dashboard section rendering a Recharts bar chart for calorie comparison across viewed recipes and a pie chart for macronutrient breakdown of the last viewed recipe, with empty-state handling.",
+  "frontend/src/components/HeroSection.tsx": "Full-width hero section with a banner image background, warm gradient overlay, SpiceAI branding, CTA buttons for search and analytics, stat counters, and a decorative SVG wave at the bottom.",
+  "frontend/src/components/IngredientSearch.tsx": "A search component that lets users add ingredients as tags (via Enter or comma) and submit them to find Indian recipes, with predefined suggestions and input validation.",
+  "frontend/src/components/Navbar.tsx": "A fixed navigation bar that becomes opaque on scroll, displays the SpiceAI logo, and provides smooth-scroll links to Search, Recipes, and Analytics sections with a mobile hamburger menu.",
+  "frontend/src/components/RecipeCard.tsx": "Displays a single recipe as a card with an image, ingredient match percentage bar, used/missing ingredient badges, and a button to view full recipe details.",
+  "frontend/src/components/RecipeDetail.tsx": "Shows full details for a selected recipe including nutrition stats, cooking steps, and ingredients, fetched via a custom hook, with loading skeletons and error states.",
+  "frontend/src/components/RecipeGrid.tsx": "Renders a responsive grid of RecipeCard components with loading skeleton placeholders and an empty-state message when no recipes are found after a search.",
+  "frontend/src/hooks/useActor.ts": "A custom hook that creates and caches an Internet Computer actor (authenticated or anonymous) using React Query, and invalidates dependent queries whenever the identity or actor changes.",
+  "frontend/src/hooks/useInternetIdentity.ts": "Provides a React context and hook for Internet Computer Internet Identity authentication, managing login state, identity persistence, and AuthClient lifecycle.",
+  "frontend/src/hooks/useQueries.ts": "Defines two React Query hooks: one to search recipes by ingredients via the Spoonacular API and one to fetch detailed recipe information including nutrition.",
+  "frontend/src/index.css": "Global stylesheet importing Poppins/Playfair Display fonts, configuring Tailwind base/components/utilities, and defining a warm Indian spice-themed CSS custom property palette with light and dark modes.",
+  "frontend/src/main.tsx": "Application entry point that mounts the React app with QueryClientProvider and InternetIdentityProvider wrapping the root App component.",
+  "frontend/src/types/spoonacular.ts": "TypeScript interfaces for Spoonacular API data shapes including recipes, ingredients, recipe details with instructions and nutrition, and a NutritionStats summary type.",
+  "frontend/tailwind.config.js": "Tailwind CSS configuration extending the theme with custom spice-palette colors, Poppins/Playfair fonts, border radii, box shadows, and animation keyframes for the SpiceAI app.",
+  "project_state.json": "Project state metadata describing the SpiceAI ingredient-based Indian recipe recommendation app, its architecture (Spoonacular API, React, Chart.js), required image assets, and implemented features."
+}

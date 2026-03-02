@@ -1,0 +1,120 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-25T17:46:13.369Z",
+  "summary": "The diff implements most of the requested requirements with good coverage. All 8 REQs have substantial implementation. However, a few specific acceptance criteria have gaps: the loading spinner text is not exactly 'Cooking delicious Indian recipes...', the API call uses number=8 instead of number=5, and the doughnut chart uses a Pie chart rather than a true doughnut. The secondary green color #2D6A4F is not explicitly in the palette.",
+  "missing_requirements": [
+    {
+      "requirement": "Loading spinner must show exact text 'Cooking delicious Indian recipes...' during API call",
+      "reason": "The IngredientSearch component file is truncated and the exact loading text string is not visible in the shown code, so this AC cannot be confirmed as implemented.",
+      "evidence": [
+        "frontend/src/components/IngredientSearch.tsx"
+      ]
+    },
+    {
+      "requirement": "API call must use number=5 for findByIngredients as specified",
+      "reason": "The useSearchRecipes hook uses number=8 instead of the specified number=5 in the Spoonacular API call URL.",
+      "evidence": [
+        "frontend/src/hooks/useQueries.ts"
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "requirement": "Secondary green color #2D6A4F must be used in the palette",
+      "reason": "The tailwind config defines forest green as oklch(0.42 0.14 145) which approximates green but the exact hex #2D6A4F specified in the requirements is not explicitly mapped or referenced.",
+      "evidence": [
+        "frontend/tailwind.config.js",
+        "frontend/src/index.css"
+      ]
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "Tag-based ingredient input system where users press Enter or comma to add individual ingredient chips/tags with visual removal buttons",
+      "reason": "The spec requests a simple comma-separated text input field. The implementation adds a complex tag/chip input system beyond what was specified.",
+      "evidence": [
+        "frontend/src/components/IngredientSearch.tsx"
+      ]
+    },
+    {
+      "description": "Ingredient match percentage progress bar on recipe cards",
+      "reason": "The spec only requests used and missing ingredient count badges on recipe cards. A percentage match progress bar was not requested.",
+      "evidence": [
+        "frontend/src/components/RecipeCard.tsx"
+      ]
+    },
+    {
+      "description": "Quick suggestion chips in the search section with pre-populated ingredient combinations",
+      "reason": "The spec does not request pre-populated suggestion chips in the ingredient search section.",
+      "evidence": [
+        "frontend/src/components/IngredientSearch.tsx"
+      ]
+    },
+    {
+      "description": "Footer section with brand description and links",
+      "reason": "No footer was requested in the build specification.",
+      "evidence": [
+        "frontend/src/App.tsx"
+      ]
+    },
+    {
+      "description": "Session summary stat cards in the analytics section beyond the two charts",
+      "reason": "The spec only requests a bar chart and doughnut chart in the analytics section. Additional session stat cards were not requested.",
+      "evidence": [
+        "frontend/src/components/AnalyticsSection.tsx"
+      ]
+    },
+    {
+      "description": "Mobile hamburger menu in the navbar",
+      "reason": "The spec does not request a mobile menu or hamburger navigation. It specifies a sticky navbar with logo and anchor links only.",
+      "evidence": [
+        "frontend/src/components/Navbar.tsx"
+      ]
+    },
+    {
+      "description": "Decorative SVG wave at the bottom of the hero section",
+      "reason": "The spec does not mention a decorative wave element at the bottom of the hero banner.",
+      "evidence": [
+        "frontend/src/components/HeroSection.tsx"
+      ]
+    },
+    {
+      "description": "Stats row in hero section showing 5000+ Recipes, 100% Indian Cuisine, Real-time Analytics",
+      "reason": "The spec does not request a statistics row in the hero section.",
+      "evidence": [
+        "frontend/src/components/HeroSection.tsx"
+      ]
+    },
+    {
+      "description": "View Analytics CTA button in the hero section",
+      "reason": "The spec only describes a Find Recipes CTA for the hero. A second View Analytics button was not requested.",
+      "evidence": [
+        "frontend/src/components/HeroSection.tsx"
+      ]
+    }
+  ],
+  "confidence": 0.72,
+  "changed_files": [
+    "all_files_summary.json",
+    "backend/main.mo",
+    "frontend-file-summaries.txt",
+    "frontend/index.css",
+    "frontend/index.html",
+    "frontend/src/App.tsx",
+    "frontend/src/components/AnalyticsSection.tsx",
+    "frontend/src/components/HeroSection.tsx",
+    "frontend/src/components/IngredientSearch.tsx",
+    "frontend/src/components/Navbar.tsx",
+    "frontend/src/components/RecipeCard.tsx",
+    "frontend/src/components/RecipeDetail.tsx",
+    "frontend/src/components/RecipeGrid.tsx",
+    "frontend/src/hooks/useActor.ts",
+    "frontend/src/hooks/useInternetIdentity.ts",
+    "frontend/src/hooks/useQueries.ts",
+    "frontend/src/index.css",
+    "frontend/src/main.tsx",
+    "frontend/src/types/spoonacular.ts",
+    "frontend/tailwind.config.js",
+    "project_state.json"
+  ]
+}

@@ -1,0 +1,236 @@
+{
+  "kind": "coverage_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-25T17:46:13.371Z",
+  "sources": {
+    "buildRequest": true,
+    "implementationPlan": true
+  },
+  "requirements": {
+    "total": 8,
+    "implemented": 8,
+    "items": [
+      {
+        "id": "REQ-1",
+        "summary": "Build a full-page React application titled SpiceAI — Ingredient-Based Recipe Recommendation System with Data Analytics. The app must have a hero header section with the SpiceAI brand name (with a curry bowl emoji), the full project subtitle INGREDIENT-BASED RECIPE RECOMMENDATION SYSTEM WITH DATA ANALYTICS, and a visually rich background using the hero banner image (spiceai-hero.dim_1440x500.png) as a backdrop with a warm gradient overlay.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/HeroSection.tsx",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/HeroSection.tsx",
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-2",
+        "summary": "Implement an ingredient search section with a styled input field where users can type ingredients separated by commas (e.g., tomato, onion, paneer). Include a prominent Find Recipes button. When submitted, call the Spoonacular API: GET https://api.spoonacular.com/recipes/findByIngredients?ingredients={ingredients}&number=5&cuisine=Indian&apiKey=f1a04579d22649258b5b03a04d119c6f. Show a loading spinner with text 'Cooking delicious Indian recipes...' while the request is in progress. If the input is empty, show a validation message.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/IngredientSearch.tsx",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/IngredientSearch.tsx",
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-3",
+        "summary": "Display recipe search results as a responsive grid of recipe cards. Each card must show: the recipe image, recipe title, a green badge for number of used ingredients, an orange badge for number of missing ingredients, and a View Recipe button. Cards must have hover lift/scale effects. Use React Query to manage API fetch state.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/RecipeCard.tsx",
+          "frontend/src/components/RecipeGrid.tsx",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/RecipeCard.tsx",
+          "frontend/src/components/RecipeGrid.tsx",
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-4",
+        "summary": "Implement a recipe detail view. When View Recipe is clicked, fetch from: GET https://api.spoonacular.com/recipes/{id}/information?includeNutrition=true&apiKey=f1a04579d22649258b5b03a04d119c6f. Display: recipe title, image, a nutrition panel with styled stat cards for Calories (kcal), Protein (g), Fat (g), and Carbohydrates (g), a full ingredient list, and numbered step-by-step cooking instructions. Include a Back to Results button to return to the recipe list.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/RecipeDetail.tsx",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/RecipeDetail.tsx",
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-5",
+        "summary": "Add a Data Analytics section below the recipe results. Render a bar chart comparing Calorie content (kcal) for each recipe viewed in the current session, labelled Ingredient Analytics — Calorie Comparison. Also render a doughnut chart showing the macronutrient breakdown (Protein, Fat, Carbohydrates) for the most recently viewed recipe. Use Recharts or react-chartjs-2. Both charts must be styled with the app color theme and update dynamically as the user views more recipes.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/AnalyticsSection.tsx",
+          "frontend/src/App.tsx",
+          "frontend/package.json"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/AnalyticsSection.tsx",
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-6",
+        "summary": "Apply a warm Indian-cuisine-inspired visual theme across the entire application. Use a saffron-to-deep-crimson color palette (primary #E63946, accent #F4A261, warm background #FFF8F0, secondary green #2D6A4F). Load Poppins font from Google Fonts for all text. Use rounded cards with soft shadows, generous spacing, and smooth transitions. Set a full-width layout with a centered 1200px max-width container. Apply the spice-pattern texture (spice-pattern.dim_400x400.png) as a subtle repeating tile on section backgrounds.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/index.css",
+          "frontend/tailwind.config.js",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/index.css",
+          "frontend/tailwind.config.js",
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-7",
+        "summary": "Render the generated hero banner image (spiceai-hero.dim_1440x500.png) and spice pattern texture (spice-pattern.dim_400x400.png) and logo (spiceai-logo.dim_120x40.png) as static assets served from frontend/public/assets/generated. Reference them in the hero header background, section background tiling, and navbar logo respectively.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/HeroSection.tsx",
+          "frontend/src/App.tsx",
+          "frontend/src/components/Navbar.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/HeroSection.tsx",
+          "frontend/src/App.tsx",
+          "frontend/src/components/Navbar.tsx"
+        ]
+      },
+      {
+        "id": "REQ-8",
+        "summary": "Add a sticky navigation bar at the top with the SpiceAI logo (spiceai-logo.dim_120x40.png) on the left and anchor links to Search, Recipes, and Analytics sections on the right. The navbar should start semi-transparent with a frosted-glass effect and transition to a solid warm background color on scroll.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/Navbar.tsx",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/Navbar.tsx",
+          "frontend/src/App.tsx"
+        ]
+      }
+    ]
+  },
+  "changedFiles": [
+    "backend/main.mo",
+    "build-request.json",
+    "build-template/Dockerfile",
+    "build-template/LICENSE",
+    "build-template/README.md",
+    "build-template/deploy.sh",
+    "build-template/icp.yaml",
+    "build-template/package.json",
+    "build-template/pnpm-lock.yaml",
+    "build-template/pnpm-workspace.yaml",
+    "build-template/scripts/prune-unused-images.js",
+    "build-template/scripts/resize-images.js",
+    "build-template/src/backend/canister.yaml",
+    "build-template/src/backend/system-idl/aaaaa-aa.did",
+    "build-template/src/frontend/canister.yaml",
+    "build-template/src/frontend/components.json",
+    "build-template/src/frontend/env.json",
+    "build-template/src/frontend/eslint-rules/no-bigint-in-query-keys.js",
+    "build-template/src/frontend/eslint-rules/require-internet-identity-provider.js",
+    "build-template/src/frontend/eslint.config.js",
+    "build-template/src/frontend/package.json",
+    "build-template/src/frontend/postcss.config.js",
+    "build-template/src/frontend/src/components/ui/accordion.tsx",
+    "build-template/src/frontend/src/components/ui/alert-dialog.tsx",
+    "build-template/src/frontend/src/components/ui/alert.tsx",
+    "build-template/src/frontend/src/components/ui/aspect-ratio.tsx",
+    "build-template/src/frontend/src/components/ui/avatar.tsx",
+    "build-template/src/frontend/src/components/ui/badge.tsx",
+    "build-template/src/frontend/src/components/ui/breadcrumb.tsx",
+    "build-template/src/frontend/src/components/ui/button.tsx",
+    "build-template/src/frontend/src/components/ui/calendar.tsx",
+    "build-template/src/frontend/src/components/ui/card.tsx",
+    "build-template/src/frontend/src/components/ui/carousel.tsx",
+    "build-template/src/frontend/src/components/ui/chart.tsx",
+    "build-template/src/frontend/src/components/ui/checkbox.tsx",
+    "build-template/src/frontend/src/components/ui/collapsible.tsx",
+    "build-template/src/frontend/src/components/ui/command.tsx",
+    "build-template/src/frontend/src/components/ui/context-menu.tsx",
+    "build-template/src/frontend/src/components/ui/dialog.tsx",
+    "build-template/src/frontend/src/components/ui/drawer.tsx",
+    "build-template/src/frontend/src/components/ui/dropdown-menu.tsx",
+    "build-template/src/frontend/src/components/ui/form.tsx",
+    "build-template/src/frontend/src/components/ui/hover-card.tsx",
+    "build-template/src/frontend/src/components/ui/input-otp.tsx",
+    "build-template/src/frontend/src/components/ui/input.tsx",
+    "build-template/src/frontend/src/components/ui/label.tsx",
+    "build-template/src/frontend/src/components/ui/menubar.tsx",
+    "build-template/src/frontend/src/components/ui/navigation-menu.tsx",
+    "build-template/src/frontend/src/components/ui/pagination.tsx",
+    "build-template/src/frontend/src/components/ui/popover.tsx",
+    "build-template/src/frontend/src/components/ui/progress.tsx",
+    "build-template/src/frontend/src/components/ui/radio-group.tsx",
+    "build-template/src/frontend/src/components/ui/resizable.tsx",
+    "build-template/src/frontend/src/components/ui/scroll-area.tsx",
+    "build-template/src/frontend/src/components/ui/select.tsx",
+    "build-template/src/frontend/src/components/ui/separator.tsx",
+    "build-template/src/frontend/src/components/ui/sheet.tsx",
+    "build-template/src/frontend/src/components/ui/sidebar.tsx",
+    "build-template/src/frontend/src/components/ui/skeleton.tsx",
+    "build-template/src/frontend/src/components/ui/slider.tsx",
+    "build-template/src/frontend/src/components/ui/sonner.tsx",
+    "build-template/src/frontend/src/components/ui/switch.tsx",
+    "build-template/src/frontend/src/components/ui/table.tsx",
+    "build-template/src/frontend/src/components/ui/tabs.tsx",
+    "build-template/src/frontend/src/components/ui/textarea.tsx",
+    "build-template/src/frontend/src/components/ui/toggle-group.tsx",
+    "build-template/src/frontend/src/components/ui/toggle.tsx",
+    "build-template/src/frontend/src/components/ui/tooltip.tsx",
+    "build-template/src/frontend/src/hooks/use-mobile.tsx",
+    "build-template/src/frontend/src/lib/utils.ts",
+    "build-template/src/frontend/tsconfig.json",
+    "build-template/src/frontend/vite.config.js",
+    "build-template/tsconfig.json",
+    "caffeine.lock.json",
+    "feature_evidence.json",
+    "frontend-file-summaries.txt",
+    "frontend-implementation-plan.json",
+    "frontend/index.css",
+    "frontend/index.html",
+    "frontend/public/assets/generated/spice-pattern.dim_400x400.png",
+    "frontend/public/assets/generated/spiceai-hero.dim_1440x500.png",
+    "frontend/public/assets/generated/spiceai-logo.dim_120x40.png",
+    "frontend/src/App.tsx",
+    "frontend/src/backend.d.ts",
+    "frontend/src/backend.ts",
+    "frontend/src/components/AnalyticsSection.tsx",
+    "frontend/src/components/HeroSection.tsx",
+    "frontend/src/components/IngredientSearch.tsx",
+    "frontend/src/components/Navbar.tsx",
+    "frontend/src/components/RecipeCard.tsx",
+    "frontend/src/components/RecipeDetail.tsx",
+    "frontend/src/components/RecipeGrid.tsx",
+    "frontend/src/config.ts",
+    "frontend/src/declarations/backend.did.d.ts",
+    "frontend/src/declarations/backend.did.js",
+    "frontend/src/hooks/useActor.ts",
+    "frontend/src/hooks/useInternetIdentity.ts",
+    "frontend/src/hooks/useQueries.ts",
+    "frontend/src/index.css",
+    "frontend/src/main.tsx",
+    "frontend/src/types/spoonacular.ts",
+    "frontend/src/ui-summary.json",
+    "frontend/src/utils/StorageClient.ts",
+    "frontend/tailwind.config.js",
+    "project_state.json",
+    "scratch/component-selection.json",
+    "spec.md",
+    "spec_vs_diff_report.json"
+  ]
+}

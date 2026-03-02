@@ -1,0 +1,205 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "SpiceAI — Ingredient-Based Recipe Recommendation System with Data Analytics",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Create hero header section with SpiceAI branding, full subtitle, and hero banner background with warm gradient overlay",
+      "acceptanceCriteria": [
+        "Header displays SpiceAI as the brand name with a curry bowl emoji",
+        "Full project subtitle is shown below the brand name",
+        "Hero section uses the generated banner image with warm gradient overlay",
+        "Header is visually prominent and polished"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/HeroSection.tsx",
+          "operation": "create",
+          "description": "Create a hero header component displaying 'SpiceAI 🍛' as the brand name, the full subtitle 'INGREDIENT-BASED RECIPE RECOMMENDATION SYSTEM WITH DATA ANALYTICS', and use frontend/public/assets/generated/spiceai-hero.dim_1440x500.png as the background image with a warm saffron-to-crimson gradient overlay. Style with generous padding, centered text, and the Poppins font."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Import and render the HeroSection component at the top of the main app layout, above all other content sections."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Implement ingredient search input with comma-separated parsing, validation, Spoonacular API integration, and loading state",
+      "acceptanceCriteria": [
+        "Input field accepts comma-separated ingredients",
+        "Find Recipes button triggers the search",
+        "Loading animation displays during API call",
+        "Empty input shows a friendly validation message",
+        "If no recipes found, display a No Indian recipes found message"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/IngredientSearch.tsx",
+          "operation": "create",
+          "description": "Create an ingredient search component with a styled text input (placeholder: 'e.g., tomato, onion, paneer'), a Find Recipes button, and validation logic that prevents submission if the input is empty. On submit, call GET https://api.spoonacular.com/recipes/findByIngredients with ingredients={ingredients}&number=5&cuisine=Indian&apiKey=f1a04579d22649258b5b03a04d119c6f. Display a loading spinner with text 'Cooking delicious Indian recipes...' while the fetch is in progress. Use React Query (useQuery) to manage fetch state. If the response is empty, show 'No Indian recipes found' message."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Import and render the IngredientSearch component below the HeroSection, wrapped in a section with id='search' for navbar anchor linking."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Display recipe search results as a responsive grid of styled recipe cards with badges and hover effects",
+      "acceptanceCriteria": [
+        "Recipes render in a responsive grid of 2 to 4 columns depending on viewport",
+        "Each card shows image, title, used count badge, and missing count badge",
+        "View Recipe button opens the recipe detail view",
+        "Cards have smooth hover scale animation"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/RecipeCard.tsx",
+          "operation": "create",
+          "description": "Create a recipe card component that displays: recipe image, recipe title, a green badge showing usedIngredientCount, an orange badge showing missedIngredientCount, and a View Recipe button. Apply rounded corners, soft shadow, and a smooth scale-on-hover transform. The button should trigger navigation to the recipe detail view."
+        },
+        {
+          "path": "frontend/src/components/RecipeGrid.tsx",
+          "operation": "create",
+          "description": "Create a recipe grid component that receives an array of recipe objects from the parent and renders them using RecipeCard in a responsive CSS grid (2 to 4 columns based on viewport width). Wrap in a section with id='recipes'."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Import RecipeGrid and render it below the IngredientSearch component. Pass the recipe list from the React Query result state managed in IngredientSearch as props to RecipeGrid. Ensure state is lifted or shared via context so RecipeGrid can access the fetched recipes."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Implement recipe detail view with nutrition panel, ingredient list, cooking instructions, and back navigation",
+      "acceptanceCriteria": [
+        "Detail view shows title, image, 4 nutrition stat cards, ingredient list, and numbered instructions",
+        "Back button returns to the recipe results list without re-fetching",
+        "Nutrition values are correctly extracted from the API nutrition.nutrients array"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/RecipeDetail.tsx",
+          "operation": "create",
+          "description": "Create a recipe detail component that fetches GET https://api.spoonacular.com/recipes/{id}/information?includeNutrition=true&apiKey=f1a04579d22649258b5b03a04d119c6f using React Query. Display: recipe title, image, a nutrition panel with styled stat cards for Calories (kcal), Protein (g), Fat (g), and Carbohydrates (g) extracted from nutrition.nutrients, the full ingredient list (extendedIngredients), and numbered step-by-step instructions (analyzedInstructions). Include a Back to Results button that returns the user to the recipe list view."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add view state management (e.g., useState for currentView and selectedRecipeId) to toggle between the recipe list view and the RecipeDetail view. When a RecipeCard View Recipe button is clicked, set the view to detail and pass the recipe ID. When Back to Results is clicked, return to the list view without re-fetching the original recipe list."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Add data analytics section with a calorie comparison bar chart and macronutrient doughnut chart that update dynamically",
+      "acceptanceCriteria": [
+        "Bar chart displays calorie values for all recipes viewed in the current session",
+        "Doughnut chart shows Protein, Fat, and Carbs breakdown for the last viewed recipe",
+        "Both charts update dynamically without page reload",
+        "Analytics section has a clear heading and styled card container"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/AnalyticsSection.tsx",
+          "operation": "create",
+          "description": "Create an analytics section component that renders two charts: a bar chart comparing Calorie content for all recipes viewed in the current session (labeled 'Ingredient Analytics — Calorie Comparison'), and a doughnut chart showing the macronutrient breakdown (Protein, Fat, Carbohydrates) for the most recently viewed recipe. Use Recharts or react-chartjs-2 with the app color theme. The component should accept a list of viewed recipes with nutrition data as props and update dynamically."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Maintain a state array of viewed recipes (tracking id, title, and nutrition data). Whenever a user opens a recipe detail view, append that recipe to the viewed list. Import and render AnalyticsSection below the RecipeGrid, wrapped in a section with id='analytics', and pass the viewed recipes array as props."
+        },
+        {
+          "path": "frontend/package.json",
+          "operation": "modify",
+          "description": "Add Recharts or react-chartjs-2 and chart.js as dependencies to support chart rendering in the AnalyticsSection component."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Apply a warm Indian-cuisine-inspired visual theme with saffron-crimson palette, Poppins font, and spice pattern texture across the entire application",
+      "acceptanceCriteria": [
+        "Saffron and crimson color palette is consistently applied site-wide",
+        "Poppins font is loaded and applied to all headings and body text",
+        "All cards use rounded corners and soft drop shadows",
+        "Layout uses a centered max-width container of 1200px",
+        "Section backgrounds use the spice pattern as a subtle tile texture",
+        "All interactive elements have smooth hover and transition animations"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Import Poppins font from Google Fonts. Define CSS custom properties for the color palette (primary #E63946, accent #F4A261, warm background #FFF8F0, secondary green #2D6A4F). Apply Poppins as the default font-family. Set body background to the warm background color. Add global styles for rounded cards with soft shadows, and smooth transitions for all interactive elements."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Extend the Tailwind theme with custom colors matching the saffron-to-crimson palette (primary, accent, warm, secondary). Add Poppins to the fontFamily configuration. Configure spacing, rounded corners, and shadow utilities to match the design system."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wrap the main content in a centered container with max-width of 1200px. Apply the spice-pattern texture (frontend/public/assets/generated/spice-pattern.dim_400x400.png) as a subtle repeating tile background on content section wrappers using inline styles or a CSS class."
+        }
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "summary": "Wire generated images (hero banner, spice pattern, logo) as static assets served from frontend/public/assets/generated",
+      "acceptanceCriteria": [
+        "Hero banner image is displayed as the header section background",
+        "Spice pattern texture tiles across content section backgrounds",
+        "Logo image renders in the navbar",
+        "All images load from the /assets/generated/ path"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/HeroSection.tsx",
+          "operation": "modify",
+          "description": "Reference the hero banner image at frontend/public/assets/generated/spiceai-hero.dim_1440x500.png as the background image using the public URL path /assets/generated/spiceai-hero.dim_1440x500.png."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Reference the spice pattern texture at frontend/public/assets/generated/spice-pattern.dim_400x400.png as a repeating background on section wrappers using the public URL path /assets/generated/spice-pattern.dim_400x400.png."
+        },
+        {
+          "path": "frontend/src/components/Navbar.tsx",
+          "operation": "modify",
+          "description": "Reference the logo image at frontend/public/assets/generated/spiceai-logo.dim_120x40.png using the public URL path /assets/generated/spiceai-logo.dim_120x40.png in the navbar logo element."
+        }
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "summary": "Add a sticky navigation bar with logo, anchor links to sections, and scroll-based background transition",
+      "acceptanceCriteria": [
+        "Navbar is sticky and always visible during scroll",
+        "Logo image renders on the left side of the navbar",
+        "Anchor links smoothly scroll to their respective sections",
+        "Navbar background transitions from frosted/transparent to solid on scroll"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Navbar.tsx",
+          "operation": "create",
+          "description": "Create a sticky navbar component with the SpiceAI logo (frontend/public/assets/generated/spiceai-logo.dim_120x40.png) on the left and anchor links (Search, Recipes, Analytics) on the right that smoothly scroll to #search, #recipes, and #analytics sections. Implement scroll detection with useEffect and useState to transition the navbar background from semi-transparent/frosted-glass to a solid warm color when the user scrolls past a threshold."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Import and render the Navbar component at the very top of the app layout, above the HeroSection. Ensure the navbar is positioned sticky and overlays the content."
+        }
+      ]
+    }
+  ]
+}
